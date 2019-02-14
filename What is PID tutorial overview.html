@@ -1,0 +1,400 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0037)http://www2.metso.com/MetsoTutor.aspx -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Tutorial | Expertune PID Loop Optimizer</title>
+
+
+<meta name="keywords" content="PlantTriage, Real-Time KPI, Key Performance Indicator, manufacturing KPI, KPI dashboard, control loop monitor, control loop monitoring, control loop performance, Active Model Capture, control loop performance monitor, CLPM, LPM">
+
+<!-- End of Keywords -->
+<style type="text/css">
+<!--
+@import url("css/xpstyles.css");
+.style3 {color: #FFFFFF}
+-->
+</style>
+<link rel="stylesheet" type="text/css" media="screen,projection,print" href="./What is PID tutorial overview_files/mfgrid.css">
+<link rel="stylesheet" type="text/css" media="screen,projection,print" href="./What is PID tutorial overview_files/metso-layout.css">
+
+
+<script type="text/javascript" async="" src="./What is PID tutorial overview_files/analytics.js"></script><script async="" src="./What is PID tutorial overview_files/js"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-801523-1');
+</script></head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+<body>
+  <!-- CONTAINER FOR ENTIRE PAGE -->
+<div class="container">
+
+
+
+<!-- Start of Main Body -->
+	<div class="main">
+  
+	    <div>
+			<a href="http://www.metso.com/"><img src="./What is PID tutorial overview_files/MetsoHeader.jpg" alt="Metso" width="900"></a>
+		</div>
+		 <!-- Left panel -->
+ <div class="leftpanel">
+    <div class="subcontent-box">
+       <!-- Start of mnuTuner.inc -->
+<!-- Menu to be inserted on the left side of a template -->
+<div id="jsFloat0">
+
+<center>
+<table id="sideMenuTable" cellspacing="0">
+
+    <tbody><tr>
+		<th colspan="2">
+		  Process optimization webinar schedule
+		</th>
+    </tr>
+	<tr>
+		<td colspan="2" bgcolor="#FFFFFF" class="centered">
+			<a href="http://www2.metso.com/MetsoWebinarSchedule.aspx" class="thumbnail">
+			<img src="./What is PID tutorial overview_files/PrivateDemo.jpg" width="195" alt="Webinar schedule" title="Webinar schedule" height="90">
+			</a>
+		</td>
+    </tr>
+	
+<!-- Spacer -->
+	<tr>
+		<td colspan="2">&nbsp;</td>
+	</tr>
+	
+
+	<tr>
+		<th colspan="2">
+		  You want more information about PID Loop Optimizer?
+		</th>
+	</tr>
+	<tr>
+		<td colspan="2" class="centered">
+		  		<a href="http://www.expertune.com/xpform2metso.asp" class="thumbnail">
+				<img src="./What is PID tutorial overview_files/Webinar5.jpg" alt="More information" title="More information" width="195" height="129" class="noborder">
+				</a>
+		</td>
+	</tr>
+	
+
+	
+
+	
+
+
+</tbody></table>  <!-- End of sideMenuTable -->
+
+</center></div> <!-- end of jsFloat -->
+<!-- End of mnuTuner.inc -->
+
+    </div>  
+ </div> <!-- end of left panel --> 
+
+		<h1>&nbsp; &nbsp; What is PID tutorial overview</h1>
+
+
+
+
+      <div class="content">
+        <div class="content1col746">
+<!-- ====================================================== -->
+<!-- Start of Content Section -->
+<!-- ====================================================== -->
+
+
+<p>PID stands for Proportional, Integral, Derivative. Controllers
+are designed to eliminate the need for continuous operator
+attention. Cruise control in a car and a house thermostat are
+common examples of how controllers are used to automatically
+adjust some variable to hold the measurement (or process
+variable) at the set-point. The set-point is where you would like
+the measurement to be. Error is defined as the difference between
+set-point and measurement. </p>
+
+<p>(error) = (set-point) - (measurement) The variable being
+adjusted is called the manipulated variable which usually is
+equal to the output of the controller. The output of PID
+controllers will change in response to a <strong>change</strong>
+in measurement or set-point. Manufacturers of PID controllers use
+different names to identify the three modes. These equations show
+the relationships: </p>
+
+<pre>P   <a href="http://www2.metso.com/MetsoTutor.aspx#P">Proportional Band</a> = 100/gain
+I            <a href="http://www2.metso.com/MetsoTutor.aspx#I">Integral</a> = 1/reset          (units of time)
+D          <a href="http://www2.metso.com/MetsoTutor.aspx#D">Derivative</a> = rate = pre-act   (units of time)
+</pre>
+
+<p>Depending on the manufacturer, integral or reset action is set
+in either time/repeat or repeat/time. One is just the reciprocal
+of the other. Note that manufacturers are not consistent and
+often use reset in units of time/repeat or integral in units of
+repeats/time. Derivative and rate are the same.</p>
+
+<p>Choosing the proper values for P, I, and D is called "PID
+Tuning".</p>
+
+
+<h3><a name="P"></a>Proportional Band</h3>
+
+<p>With proportional band, the controller output is proportional
+to the error or a change in measurement (depending on the
+controller). </p>
+
+<div align="center">(controller output) = (error)*100/(proportional
+band) </div>
+
+<p>With a proportional controller offset (deviation from
+set-point) is present. Increasing the controller gain will make
+the loop go unstable. Integral action was included in controllers
+to eliminate this offset. </p>
+
+<h3><a name="I"></a>Integral</h3>
+
+<p>With integral action, the controller output is proportional to
+the amount of time the error is present. Integral action
+eliminates offset. </p>
+
+<div align="center">CONTROLLER OUTPUT = (1/INTEGRAL) (Integral of)
+e(t) d(t) </div>
+
+<br clear="all">
+
+<p><img src="./What is PID tutorial overview_files/TEACH1A.GIF" align="center" hspace="3" width="498" height="288" alt="Load Step Time Response" title="Load Step Time Response"> </p>
+
+<br clear="all">
+
+<p>Notice that the offset (deviation from set-point) in the time
+response plots is now gone. Integral action has eliminated the
+offset. The response is somewhat oscillatory and can be
+stabilized some by adding derivative action. (Graphic courtesy of
+ExperTune Loop Simulator.) </p>
+
+<p>Integral action gives the controller a large gain at low
+frequencies that results in eliminating offset and "beating
+down" load disturbances. The controller phase starts out at
+–90 degrees and increases to near 0 degrees at the break
+frequency. This additional phase lag is what you give up by
+adding integral action. Derivative action adds phase lead and is
+used to compensate for the lag introduced by integral action. </p>
+
+<h3><a name="D"></a>Derivative</h3>
+
+<p>With derivative action, the controller output is proportional
+to the rate of change of the measurement or error. The controller
+output is calculated by the rate of change of the measurement
+with time. </p>
+
+<pre>                                      dm
+      CONTROLLER OUTPUT = DERIVATIVE ----
+                                      dt
+</pre>
+
+<p>Where <i>m</i> is the measurement at time <i>t</i>. </p>
+
+<p>Some manufacturers use the term rate or pre-act instead of
+derivative. Derivative, rate, and pre-act are the same thing. </p>
+
+<div align="center">DERIVATIVE = RATE = PRE ACT </div>
+
+<p>Derivative action can compensate for a changing measurement.
+Thus derivative takes action to inhibit more rapid changes of the
+measurement than proportional action. When a load or set-point
+change occurs, the derivative action causes the controller gain
+to move the "wrong" way when the measurement gets near
+the set-point. Derivative is often used to avoid overshoot. </p>
+
+<p>Derivative action can stabilize loops since it adds phase
+lead. Generally, if you use derivative action, more controller
+gain and reset can be used. </p>
+
+<br clear="all">
+
+<img src="./What is PID tutorial overview_files/FREQ.GIF" align="center" hspace="3" width="480" height="357" alt="Frequency" title="Frequency Response">
+
+<br clear="all">
+<p>
+With a PID controller the
+amplitude ratio now has a dip near the center of the frequency response.
+Integral action gives the controller high gain at low frequencies, and
+derivative action causes the gain to start rising after the "dip".
+At higher frequencies the filter on derivative action limits the derivative
+action. At very high frequencies (above 314 radians/time; the Nyquist
+frequency) the controller phase and amplitude ratio increase and decrease
+quite a bit because of discrete sampling. If the controller had no filter the
+controller amplitude ratio would steadily increase at high frequencies up to
+the Nyquist frequency (1/2 the sampling frequency). The controller phase now
+has a hump due to the derivative lead action and filtering. (Graphic courtesy
+of ExperTune Loop Simulator.) </p>
+
+<p>The time response is less oscillatory than with the PI
+controller. Derivative action has helped stabilize the loop. </p>
+
+<h3>Control Loop Tuning</h3>
+
+<p>It is important to keep in mind that understanding the process
+is fundamental to getting a well designed control loop. Sensors
+must be in appropriate locations and valves must be sized
+correctly with appropriate trim. </p>
+
+<p>In general, for the tightest loop control, the dynamic
+controller gain should be as high as possible without causing the
+loop to be unstable. Choosing a controller gain is accomplished easily
+with PID Tuning Software</p>
+
+
+
+<h3><a name="FineTune"></a>Fine Tuning "Rules"</h3>
+
+<p>This picture (from the <a href="http://www2.metso.com/LoopSimulator.aspx">Loop Simulator</a>) shows the effects of a
+PI controller with too much or too little P or I action. The
+process is typical with a dead time of 4 and lag time of 10.
+Optimal is red. </p>
+
+<p>You can use the picture to recognize the shape of an optimally
+tuned loop. Also see the response shape of loops with I or P too
+high or low. To get your process response to compare, put the
+controller in manual change the output 5 or 10%, then put the
+controller back in auto. </p>
+
+<p>P is in units of proportional band. I is in units of
+time/repeat. So increasing P or I, <i>decreases</i> their action
+in the picture. </p>
+
+<br clear="all">
+
+<div align="center">
+    <img src="./What is PID tutorial overview_files/finetune.gif" width="684" height="578" alt="Fine Tuning Rules" align="left">
+</div>
+
+
+<br clear="all">
+
+
+<h3><a name="InitialPID"></a>Starting PID Settings For Common Control
+Loops</h3>
+
+<br clear="all">
+
+<table id="PIDSettings">
+<tbody><tr>
+    <th>Loop Type</th>
+    <th>PB<br>%</th>
+    <th>Integral<br>min/rep</th>
+    <th>Integral<br>rep/min</th>
+    <th>Derivative<br>min</th>
+    <th>Valve Type</th>
+
+</tr>
+
+<tr>
+    <td>Flow</td>
+    <td>50 to 500</td>
+    <td>0.005 to 0.05</td>
+    <td>20 to 200</td>
+    <td>none</td>
+    <td>Linear or Modified Percentage</td>
+</tr>
+
+<tr>
+    <td>Liquid Pressure</td>
+    <td>50 to 500</td>
+    <td>0.005 to 0.05</td>
+    <td>20 to 200</td>
+    <td>none</td>
+    <td>Linear or Modified Percentage</td>
+</tr>
+
+<tr>
+    <td>Gas Pressure</td>
+    <td>1 to 50</td>
+    <td>0.1 to 50</td>
+    <td>0.02 to 10</td>
+    <td>0.02 to 0.1</td>
+    <td>Linear</td>
+</tr>
+
+<tr>
+    <td>Liquid Level</td>
+    <td>1 to 50</td>
+    <td>1 to 100</td>
+    <td>0.1 to 1</td>
+    <td>0.01 to 0.05</td>
+    <td>Linear or Modified Percentage</td>
+</tr>
+
+<tr>
+    <td>Temperature</td>
+    <td>2 to 100</td>
+    <td>0.2 to 50</td>
+    <td>0.02 to 5</td>
+    <td>0.1 to 20</td>
+    <td>Equal Percentage</td>
+</tr>
+
+<tr>
+    <td>Chromatograph</td>
+    <td>100 to 2000</td>
+    <td>10 to 120</td>
+    <td>0.008 to 0.1</td>
+    <td>0.1 to 20</td>
+    <td>Linear</td>
+</tr>
+
+
+</tbody></table>
+<p>
+These settings are rough, assume proper control loop design, ideal or
+series algorithm and do not apply to all controllers.  Use Expertune's
+PID Loop Optimizer to find the proper PID
+settings for your process and controller.
+(From <i>Process Control Systems (Shinskey) p.99 and <i>Tuning and Control
+Loop Performance</i> (McMillan) p 39)
+</i></p><i>
+
+
+<!-- hide initial settings graphic
+<div> align="center">
+    <img src="images/initialset.gif" width="886" height="252" alt="">
+</div>
+ -->
+
+<br clear="all">
+
+
+
+<br><br>
+<!-- ====================================================== -->
+<!-- End of Content Section -->
+<!-- ====================================================== -->
+
+    <!-- D. FOOTER -->      
+
+	<div>
+	<table width="100%" style="background-color: #6e6c70">
+		<tbody><tr>
+			<td width="3%"></td>
+			<td style="margin-left: 100px; margin-right: 100px;">
+				<p style="float: left; margin-top: 5px; background-color: #6e6c70;">
+					<a href="http://www.metso.com/"><img alt="" src="./What is PID tutorial overview_files/Metso_Logo_White.png" height="28" width="75"></a>
+					</p><p style="float: right; color: #FFFFFF;">
+						&nbsp; <a title="Legal notice" href="http://www.metso.com/legal/" target="_top">Legal notice</a>
+						| <a title="Trademarks" href="http://www.metso.com/trademarks/" target="_top">Trademarks</a> | 
+						<a title="Privacy Policy" href="http://www.metso.com/privacy-policy/" target="_top">Privacy policy</a> | © 2018
+					</p>
+				<p></p>
+			</td><td width="3%"></td>
+		</tr>
+	</tbody></table>
+	</div>
+
+
+</i></div><i>	<!-- end of class container" -->
+  
+
+</i></div></div></div></body></html>

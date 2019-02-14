@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)https://www.crossco.com/blog/basics-tuning-pid-loops -->
+<html lang="en" dir="ltr" prefix="content: http://purl.org/rss/1.0/modules/content/  dc: http://purl.org/dc/terms/  foaf: http://xmlns.com/foaf/0.1/  og: http://ogp.me/ns#  rdfs: http://www.w3.org/2000/01/rdf-schema#  schema: http://schema.org/  sioc: http://rdfs.org/sioc/ns#  sioct: http://rdfs.org/sioc/types#  skos: http://www.w3.org/2004/02/skos/core#  xsd: http://www.w3.org/2001/XMLSchema# " class=" js"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="https://js-agent.newrelic.com/nr-1099.min.js"></script><script type="text/javascript" async="" src="./The Basics of Tuning PID Loops_files/analytics.js"></script><script async="" src="./The Basics of Tuning PID Loops_files/gtm.js"></script><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(3),u=e(4),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],t),e}finally{f.emit("fn-end",[c.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now()])}},{}],2:[function(e,n,t){function r(e,n){if(!o)return!1;if(e!==o)return!1;if(!n)return!0;if(!i)return!1;for(var t=i.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var u=navigator.userAgent,f=u.match(a);f&&u.indexOf("Chrome")===-1&&u.indexOf("Chromium")===-1&&(o="Safari",i=f[1])}n.exports={agent:o,version:i,match:r}},{}],3:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],4:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],5:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=v(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||o(t)}function w(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:l,addEventListener:l,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(3),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!E++){var e=x.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+x.offset],null,"api");var t=l.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===l.readyState&&i()}function i(){f("mark",["domContent",a()+x.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-x.offset}var u=(new Date).getTime(),f=e("handle"),c=e(3),s=e("ee"),p=e(2),d=window,l=d.document,m="addEventListener",v="attachEvent",g=d.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:g,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1099.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),x=n.exports={offset:u,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),l[m]?(l[m]("DOMContentLoaded",i,!1),d[m]("load",r,!1)):(l[v]("onreadystatechange",o),d[v]("onload",r)),f("mark",["firstbyte",u],null,"api");var E=0,O=e(5)},{}]},{},["loader"]);</script>
+<script>window.dataLayer = window.dataLayer || []; window.dataLayer.push({"blog":"Process Control Integration Blog"});</script>
+<meta name="title" content="The Basics of Tuning PID Loops | CrossCo">
+<meta name="description" content="Chris Hardy provides the Basics of Tuning PID Loops.">
+<meta name="Generator" content="Drupal 8 (https://www.drupal.org)">
+<meta name="MobileOptimized" content="width">
+<meta name="HandheldFriendly" content="true">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://www.crossco.com/blog/basics-tuning-pid-loops">
+<link rel="shortlink" href="https://www.crossco.com/node/203">
+<link rel="revision" href="https://www.crossco.com/blog/basics-tuning-pid-loops">
+
+    <title>The Basics of Tuning PID Loops | CrossCo</title>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-N44HGB');</script>
+    <!-- End Google Tag Manager -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://www.crossco.com/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://www.crossco.com/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://www.crossco.com/favicon-16x16.png">
+    <link rel="manifest" href="https://www.crossco.com/manifest.json">
+    <link rel="mask-icon" href="https://www.crossco.com/safari-pinned-tab.svg" color="#111111">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="./The Basics of Tuning PID Loops_files/css_2gTeD38NCUFxOVPVeMkCAKt6-zC0zWdMq1lEbIS3_Gw.css" media="all">
+<link rel="stylesheet" href="./The Basics of Tuning PID Loops_files/css_5BOqSVPYc5nNJTuQuVzqNnrm_m8mBcvL8S4eQnHfUXc.css" media="all">
+
+    
+<!--[if lte IE 8]>
+<script src="/sites/default/files/js/js_VtafjXmRvoUgAzqzYTA3Wrjkx9wcWhjP0G4ZnnqRamA.js"></script>
+<![endif]-->
+
+  <script async="" src="./The Basics of Tuning PID Loops_files/hotjar-223127.js"></script><script async="" src="./The Basics of Tuning PID Loops_files/modules-239439752d7ca7c58c060cde4a84a63c.js"></script><style type="text/css">iframe#_hjRemoteVarsFrame {display: none !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important;}</style></head>
+  <body class="path-node page-node-type-blog-post has-glyphicons">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N44HGB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <a href="https://www.crossco.com/blog/basics-tuning-pid-loops#main-content" class="visually-hidden focusable skip-link">
+      Skip to main content
+    </a>
+    
+    <div class="masthead ">
+    <div class="top-bar">
+    <div class="container">
+      <div class="nav-wrapper">
+        
+        <div class="nav-search-bar">
+          <span class="search-toggle">Search<span class="glyphicon glyphicon-search"></span></span>
+          <form action="https://www.crossco.com/search/node" method="get" accept-charset="UTF-8">
+            <label for="edit-keys" class="control-label sr-only">Search</label>
+
+
+            <div class="input-group">
+              <input title="Enter the terms you wish to search for." class="form-search form-control" type="search" id="cross-search-keys" name="keys" value="" size="15" maxlength="128">
+              <span class="input-group-btn">
+                <button type="submit" value="Search" class="form-submit btn-primary btn icon-only" name="">
+                  <span class="sr-only">Search</span>
+                  <span class="icon glyphicon glyphicon-search" aria-hidden="true"></span>
+                </button>
+              </span>
+            </div>
+          </form>
+        </div>
+        <div class="nav-search-bar-overlay"></div>
+      </div>
+    </div>
+  </div>
+                    <header class="navbar navbar-default navbar-main" id="navbar" role="banner">
+                  <div class="container">
+                    <div class="navbar-header">
+                        <span class="btn btn-primary nav-cta" data-toggle="modal" data-target="#consultation-form">Contact Cross Company</span>
+                          <div class="region region-navigation">
+          <a class="logo navbar-btn pull-left" href="https://www.crossco.com/" title="Home" rel="home">
+      <img src="./The Basics of Tuning PID Loops_files/logo.png" alt="Home">
+    </a>
+        <a href="https://www.crossco.com/process-controls" class="cross-specialty-link">Process Control Integration</a>
+    
+  </div>
+
+                                      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              </button>
+                      </div>
+                                <div id="navbar-collapse" class="navbar-collapse collapse">
+                <div class="region region-navigation-collapsible">
+    <section id="block-cross-main-menu--2" class="block block-cross-specialties block-specialty-menu-blockmain clearfix">
+  
+    
+
+      
+              <ul class="menu nav navbar-nav">
+                                  <li class="depth-0">
+          <a class="parent-link" href="https://www.crossco.com/process-controls/front-end-design-specification" style="height: 36px;">
+            <div class="v-table-cell">
+              Front-End Design
+                          </div>
+          </a>
+                  </li>
+                              <li class="depth-0">
+          <a class="parent-link" href="https://www.crossco.com/process-controls/process-control-integration-s88" style="height: 36px;">
+            <div class="v-table-cell">
+              <span class="has-short-title"><span class="long-title visible-md-inline visible-lg-inline">Process Controls</span><span class="short-title visible-xs-inline visible-sm-inline">Process Controls<span></span>
+                          </span></span></div>
+          </a>
+                  </li>
+                              <li class="depth-0">
+          <a class="parent-link" href="https://www.crossco.com/process-controls/legacy-migration" style="height: 36px;">
+            <div class="v-table-cell">
+              Control Migration
+                          </div>
+          </a>
+                  </li>
+                              <li class="depth-0">
+          <a class="parent-link" href="https://www.crossco.com/process-controls/industrial-networking-cybersecurity" style="height: 36px;">
+            <div class="v-table-cell">
+              Industrial Cybersecurity
+                          </div>
+          </a>
+                  </li>
+                              <li class="depth-0">
+          <a class="parent-link" href="https://www.crossco.com/process-controls/process-control-platforms" style="height: 36px;">
+            <div class="v-table-cell">
+              <span class="has-short-title"><span class="long-title visible-md-inline visible-lg-inline">Platforms</span><span class="short-title visible-xs-inline visible-sm-inline">Platforms<span></span>
+                          </span></span></div>
+          </a>
+                  </li>
+                              <li class="depth-0">
+          <a class="parent-link" href="https://www.crossco.com/process-controls/industries" style="height: 36px;">
+            <div class="v-table-cell">
+              Industries
+                          </div>
+          </a>
+                  </li>
+                              <li class="depth-0">
+          <a class="parent-link" href="https://www.crossco.com/blog/process-control-integration" style="height: 36px;">
+            <div class="v-table-cell">
+              Blog
+                          </div>
+          </a>
+                  </li>
+        </ul>
+  
+
+
+  </section>
+
+<div class="search-block-form block block-search block-search-form-block" data-drupal-selector="search-block-form" id="block-searchform" role="search">
+  
+    
+      <form action="https://www.crossco.com/search/node" method="get" id="search-block-form" accept-charset="UTF-8">
+  <div class="form-item js-form-item form-type-search js-form-type-search form-item-keys js-form-item-keys form-no-label form-group">
+      <label for="edit-keys" class="control-label sr-only">Search</label>
+  
+  
+  <div class="input-group"><input title="Enter the terms you wish to search for." data-drupal-selector="edit-keys" class="form-search form-control" placeholder="Search" type="search" id="edit-keys" name="keys" value="" size="15" maxlength="128"><span class="input-group-btn"><button type="submit" value="Search" class="button js-form-submit form-submit btn-primary btn icon-only" name=""><span class="sr-only">Search</span><span class="icon glyphicon glyphicon-search" aria-hidden="true"></span></button></span></div>
+
+  
+  
+      <div id="edit-keys--description" class="description help-block">
+      Enter the terms you wish to search for.
+    </div>
+  </div>
+<div class="form-actions form-group js-form-wrapper form-wrapper" data-drupal-selector="edit-actions" id="edit-actions"></div>
+
+</form>
+
+  </div>
+
+  </div>
+
+            </div>
+                              <div class="exposed-nav" style="">
+            <section id="block-cross-main-menu--2" class="block block-cross-specialties block-specialty-menu-blockmain clearfix" style="">
+  
+    
+
+      
+              <ul class="menu nav navbar-nav" style="">
+                                  <li class="depth-0" style="">
+          <a class="parent-link" href="https://www.crossco.com/process-controls/front-end-design-specification" style="height: 45px;">
+            <div class="v-table-cell">
+              Front-End Design
+                          </div>
+          </a>
+                  </li>
+                              <li class="depth-0" style="">
+          <a class="parent-link" href="https://www.crossco.com/process-controls/process-control-integration-s88" style="height: 45px;">
+            <div class="v-table-cell">
+              <span class="has-short-title"><span class="long-title visible-md-inline visible-lg-inline">Process Controls</span><span class="short-title visible-xs-inline visible-sm-inline">Process Controls<span></span>
+                          </span></span></div>
+          </a>
+                  </li>
+                              <li class="depth-0" style="">
+          <a class="parent-link" href="https://www.crossco.com/process-controls/legacy-migration" style="height: 45px;">
+            <div class="v-table-cell">
+              Control Migration
+                          </div>
+          </a>
+                  </li>
+                              <li class="depth-0" style="">
+          <a class="parent-link" href="https://www.crossco.com/process-controls/industrial-networking-cybersecurity" style="height: 45px;">
+            <div class="v-table-cell">
+              Industrial Cybersecurity
+                          </div>
+          </a>
+                  </li>
+                              <li class="depth-0" style="">
+          <a class="parent-link" href="https://www.crossco.com/process-controls/process-control-platforms" style="height: 45px;">
+            <div class="v-table-cell">
+              <span class="has-short-title"><span class="long-title visible-md-inline visible-lg-inline">Platforms</span><span class="short-title visible-xs-inline visible-sm-inline">Platforms<span></span>
+                          </span></span></div>
+          </a>
+                  </li>
+                              <li class="depth-0" style="">
+          <a class="parent-link" href="https://www.crossco.com/process-controls/industries" style="height: 45px;">
+            <div class="v-table-cell">
+              Industries
+                          </div>
+          </a>
+                  </li>
+                              <li class="depth-0" style="">
+          <a class="parent-link" href="https://www.crossco.com/blog/process-control-integration" style="height: 45px;">
+            <div class="v-table-cell">
+              Blog
+                          </div>
+          </a>
+                  </li>
+        </ul>
+  
+
+
+  </section>
+
+
+          </div>
+                              </div>
+                        <span class="btn btn-primary nav-cta mobile" data-toggle="modal" data-target="#consultation-form">Contact Cross Company</span>
+              </header>
+      </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+            <ol class="breadcrumb">
+          <li>
+                  <a href="https://www.crossco.com/">Home</a>
+              </li>
+          <li>
+                  <a href="https://www.crossco.com/process-controls">Process Control Integration</a>
+              </li>
+          <li>
+                  <a href="https://www.crossco.com/blog/process-control-integration">Blog</a>
+              </li>
+          <li class="active">
+                  The Basics of Tuning PID Loops
+              </li>
+      </ol>
+
+
+      </div>
+    </div>
+  </div>
+
+
+  <div role="main" class="main-container container  js-quickedit-main-content">
+    <div class="row">
+            <div class="category-label col-sm-12">
+            <ul class="field field--name-field-categories field--type-entity-reference field--label-hidden field__items">
+                <li class="field__item">
+        <a href="https://www.crossco.com/categories/process-controls" hreflang="en">Process Controls</a>
+            </li>
+          </ul>
+
+      </div>
+      
+            
+                  <section class="col-sm-8 content-col">
+
+        
+                                      <div role="heading">
+                <div class="region region-header">
+    
+    <h1 class="page-header"><span>The Basics of Tuning PID Loops</span>
+</h1>
+
+
+  </div>
+
+            </div>
+                  
+                
+                                      
+                  
+                          <a id="main-content"></a>
+            <div class="region region-content">
+      <article data-history-node-id="203" role="article" about="/blog/basics-tuning-pid-loops" class="blog-post is-promoted full clearfix">
+
+  
+  
+    
+
+  
+      <div class="blog-image field field--name-field-blog-post-image field--type-image field--label-hidden field__items">
+              <img src="./The Basics of Tuning PID Loops_files/real example of a well tuned loop_0.png" width="800" height="396" alt="PID Loop Tuning" typeof="foaf:Image" class="img-responsive">
+
+
+
+          </div>
+
+
+  <div class="authorship-wrapper">
+    <h4 class="blog-authorship"><span class="author">Chris Hardy | </span><span class="time"> April 9th, 2014</span></h4>
+
+<!--     <div class="social-buttons">
+      <span class="social-btn"><a href="https://twitter.com/share" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></span>
+      <span class="social-btn"><script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
+      <script type="IN/Share"></script></span>
+          </div> -->
+  </div>
+
+  <div class="content">
+        <div class="field field--name-body field--type-text-with-summary field--label-hidden field__items">
+                <div class="field__item">
+        <p>The art of <strong>tuning a PID loop</strong> is to have it adjust its OP to move the PV as quickly as possible to the SP (<strong>responsive</strong>), minimize <strong>overshoot</strong>, and then hold the PV steady at the SP without excessive OP changes (<strong>stable</strong>).</p>
+
+<h2>First, Some Definitions</h2>
+
+<ul><li><strong>PID</strong> = Proportional, Integral, Derivative algorithm. This is not a P&amp;ID, which is a Piping (or Process) and Instrumentation Diagram.</li>
+	<li><strong>PV</strong> = Process Variable - a quantity used as a feedback, typically measured by an instrument. Also sometimes called "MV" - Measured Value.</li>
+	<li><strong>SP </strong>= SetPoint - the desired value for the PV.</li>
+	<li><strong>OP</strong> = OutPut - a signal to a device that can change the PV - frequently a valve, damper, or a pump speed reference. Also sometimes called "CV" - Controlled Value.</li>
+	<li><strong>Overshoot</strong> = when the PV moves further past the SP than desired.&nbsp;</li>
+	<li>A PID loop in<strong> manual</strong> (as opposed to <strong>automatic</strong>) only changes its OP upon operator request.</li>
+	<li>A loop in<strong> remote&nbsp;</strong>has its SP automatically adjusted by external logic. In <strong>local</strong> the SP is only changed by the operator.&nbsp;Some systems combine auto and remote into “cascade” mode.</li>
+	<li>A<strong> direct acting</strong> PID loop increases its OP in response to increasing PV, while a <strong>reverse acting</strong> loop decreases its OP. “Normal” loops are reverse acting. Loops controlling level or pressure via a valve on an output, or temperature via cooling are generally direct acting – “backwards” loops.</li>
+	<li><strong>Error</strong> = the difference between PV and SP.</li>
+</ul><p style="text-align: center;"><img alt="" data-entity-type="" data-entity-uuid="" src="./The Basics of Tuning PID Loops_files/overshoot.png" style="width: 244px; height: 155px;"></p>
+
+<p style="text-align: center;">Overshoot</p>
+
+<p><a class="btn btn-primary btn-lg" href="https://www.crossco.com/node/202" target="_blank" title="Read: Advanced PID Loop Tuning Methods">Read "Advanced PID Loop Tuning Methods"</a></p>
+
+<h2>3 Basic Tuning Parameters of a PID Loop</h2>
+
+<p>Note: for demonstration purposes the charts below show the individual responses of the actions where the PV is&nbsp;<strong>NOT</strong>&nbsp;affected by the OP. Normally the PV would be affected by the change in OP &amp; would therefore be brought back toward the SP as a result of the OP's response.</p>
+
+<h3>Gain:</h3>
+
+<p>Also called <strong>proportional band or P-gain</strong>, the <strong>gain</strong> determines how much change the OP will make due to a change in error (from&nbsp;a PV change and / or an SP change). This mainly corrects the OP based on upsets as they happen. "Gain" implies that a larger number will have more effect. "Proportional band" implies the opposite. P-Gain = 100% / P-band.</p>
+
+<p style="text-align: center;"><img alt="" data-entity-type="" data-entity-uuid="" src="./The Basics of Tuning PID Loops_files/Gain_Only_Response.png" style="width: 145px; height: 140px;"></p>
+
+<p style="text-align: center;">Gain Only Response</p>
+
+<h3>Reset:</h3>
+
+<p>Also called <strong>integral or I-gain</strong>, the <strong>reset</strong> determines how much to change the OP over time due to the error (regardless of the direction of movement of the error). This brings a stable PV that is off SP toward the SP. Reset or I-gain implies that a larger number will have more effect. Integral implies the opposite. Reset [resets per minute] = 60 / Integral [seconds per reset].</p>
+
+<p style="text-align: center;"><img alt="" data-entity-type="" data-entity-uuid="" src="./The Basics of Tuning PID Loops_files/Reset_Only_Response.png" style="width: 162px; height: 197px;"></p>
+
+<p style="text-align: center;">Reset Only Response</p>
+
+<h3>Preact:&nbsp;</h3>
+
+<p>Also called <strong>derivative or D-gain</strong>, the <strong>preact</strong> determines how much to change the OP due from a change in direction of the error or PV. While acting on the PV, rather than the error, is an option in some loops, acting on PV is better because it is undesirable to bump the OP when the SP is changed. It is called preact because it allows the loop to “anticipate” upsets as they begin to happen and react quickly.</p>
+
+<p style="text-align: center;"><img alt="" data-entity-type="" data-entity-uuid="" src="./The Basics of Tuning PID Loops_files/Preact_Only_Response.png" style="width: 193px; height: 126px;"></p>
+
+<p style="text-align: center;">Preact Only Response</p>
+
+<h3>Actions Working Together:</h3>
+
+<p>When the PV is approaching the SP, Proportional and Integral work in opposite directions to cause the PV of a properly tuned loop to get to the SP quickly without excessively overshooting. For a typical reverse-acting loop, the proportional will try to close the OP as the PV rises toward the SP, but the integral will try to open the OP because PV is below SP. As the PV gets closer to the SP, integral action decreases resulting in the PV smoothly decelerating into the SP.</p>
+
+<p style="text-align: center;"><img alt="" data-entity-type="" data-entity-uuid="" src="./The Basics of Tuning PID Loops_files/Gain_and_Reset_Together.png" style="width: 203px; height: 167px;"></p>
+
+<p style="text-align: center;">Gain and Reset Together</p>
+
+<h2>Initial Loop Tuning</h2>
+
+<p><strong>The goal of tuning a PID loop is to make it&nbsp;</strong><strong style="line-height: 1.231;">stable,&nbsp;</strong><strong style="line-height: 1.231;">responsive and to minimize overshooting.</strong> These goals - especially the last two - conflict with each other. You must find a compromise between the goals which acceptably satisfies them all. Process requirements and physical limitations will determine the balance between amount of acceptable overshoot as well as the demand for responsiveness. The primary factors which dictate the limits to responsiveness of a loop are:</p>
+
+<ol><li>The amount of PV change resulting from an OP step change.</li>
+	<li>The time from when the OP changes until the change starts to be seen in the PV,</li>
+	<li>The time for the PV to reach its new level. Because the PV usually approaches its new level asymptotically, for that time constant we frequently use the time it takes the system's step response to reach 1-1/e, or about 63% of the distance from the initial to its final value.</li>
+</ol><p style="text-align: center;"><img alt="" data-entity-type="" data-entity-uuid="" src="./The Basics of Tuning PID Loops_files/three_response_factors.png" style="width: 237px; height: 202px;"></p>
+
+<p style="text-align: center;">Three Response Factors</p>
+
+<p>When beginning to tune a loop, first make sure you have a good trending package. Watch the PV, SP, OP and other outside variables you suspect might influence the PV together. Characterize the loop by making step changes in manual through the range of the OP and back, and make a note of these three factors. Stepping through the range in both directions is valuable to quantify the<strong> linearity </strong>and<strong> hysteresis </strong>of the system<strong>.</strong></p>
+
+<p><strong>Linearity</strong>: If the same change in OP through the whole scale results in a similar change in PV at each point, the system is <strong>linear</strong>. But if a change on one part of the OP range results in more PV change than the same OP change in a different range, the system is <strong>non-linear</strong>.&nbsp;</p>
+
+<p style="text-align: center;"><img alt="" data-entity-type="" data-entity-uuid="" src="./The Basics of Tuning PID Loops_files/linear_OP.png" style="width: 302px; height: 200px;"></p>
+
+<p style="text-align: center;">Linear OP</p>
+
+<p style="text-align: center;"><img alt="" data-entity-type="" data-entity-uuid="" src="./The Basics of Tuning PID Loops_files/non_linear_OP_0.png" style="width: 600px; height: 220px;"></p>
+
+<p style="text-align: center;">Non-Linear OP</p>
+
+<p><strong>Hysteresis</strong>: Some devices will yield a different PV for the same OP depending on whether the OP went up or down to get there. A valve might allow 25 GPM through after moving from 20% to 30%, but 30 GPM after moving from 40% to 30%.</p>
+
+<p style="text-align: center;"><span data-mce-mark="1" style="background-color: #ffffff; line-height: 1.231;"><img alt="" data-entity-type="" data-entity-uuid="" src="./The Basics of Tuning PID Loops_files/OP_hysteresis.png" style="width: 184px; height: 129px;"></span></p>
+
+<p style="text-align: center;"><span data-mce-mark="1" style="background-color: #ffffff; line-height: 1.231;">OP Hysteresis</span></p>
+
+<p class="cta-container" style="text-align: center;"><a class="btn btn-primary btn-lg" data-entity-substitution="canonical" data-entity-type="node" data-entity-uuid="f5bce329-d7af-4349-9293-59bdcfd8da79" href="https://www.crossco.com/download-cross-company-case-study-jack-daniel-distillery" target="_blank" title="Cross Company is Jack Daniel&#39;s partner and primary integrator for their new state-of-the-art facility.">Download the Jack Daniel's Case Study</a></p>
+
+<h2>2 Basic PV Categories: Particle and Bulk</h2>
+
+<p><strong>Particle properties</strong>&nbsp;are those where a fluid in a pipe may have different properties in different areas, so that the fluid must be mixed or moved to change the property at the PV measurement point. Particle properties include temperature, pH, conductivity, etc. These tend to have a significant delay between a change in OP and the beginning of the change in PV (#2 above), and therefore might benefit from derivative action.</p>
+
+<p><strong>Bulk properties</strong>&nbsp;describe the state of the fluid as a whole so that it all changes everywhere in a pipe or vessel (for practical purposes) simultaneously. Examples: flow, level, and pressure. Generally these PVs begin to show the result of an OP change immediately (even if the time constant to complete the change is long) and do not need any derivative.</p>
+
+<p>Another categorization of PVs: some (such as flow) increase when the OP increases and decrease when the OP decreases. These should be characterized as shown above - they typically need more integral and minimal P-gain. For others (such as level) the <strong>direction</strong> (rather than value) of the PV is relative to the OP. For the latter, a characterization is more subtle - you want to characterize the slope of the PV for various OPs instead of its value. These sometimes need moderate-to-high gain and less integral.</p>
+
+<h2>Starting Parameters</h2>
+
+<p>Loops where the PV changes quickly due to a change in OP (flow, or pressure or level in vessels with fast turnover) should have low P-gain (perhaps 0.2) and higher reset (1.5 – 10 rpm). Loops where the PV changes slowly, or changes its direction of movement due to change in OP (temperature and level in vessels with slow turnover) typically need high gain (3 – 100) and low reset (0.05 – 0.3).&nbsp;</p>
+
+<p>These recommended starting parameters are based on the input and output ranges being the same. Some controllers handle tuning parameters based on percent of span, while others do not make this correction. If the spans are different, corrections would have to be made to the parameters themselves. For example, if the flow through a pipe can be from 0 – 10,000 gpm, and you are adjusting the speed of a VFD from 0-100%, the starting gain and reset would need to be 0.004 and 0.02 instead of 0.4 and 2.0.</p>
+
+<p>There are numeric methods where the natural resonant frequency of a system is determined and parameters set accordingly, but&nbsp;<strong>I've found an iterative, intuitive approach to be more useful</strong>:</p>
+
+<ul><li>Start with a low proportional and no integral or derivative.</li>
+	<li>Double the proportional until it begins to oscillate, then halve it.</li>
+	<li>Implement a small integral.</li>
+	<li>Double the integral until it starts oscillating, then halve it.</li>
+</ul><p>That will get the constants close to where they need to be for fine adjustment. Don’t hesitate to put the loop back in manual if the loop goes crazy or while studying the trend.</p>
+
+<h2>Fine Tuning</h2>
+
+<p>To achieve the goal of a responsive and stable loop with minimal overshoot, the tuning must be tested in response to upsets and at steady state. Upsets can be induced by:</p>
+
+<ul><li>Changing the SP.</li>
+	<li>Putting the loop in manual, changing the OP, then returning to automatic.</li>
+	<li>Externally causing a change to the PV.</li>
+</ul><p>Once the PV has stabilized at its SP, upset it by stepping the SP. Even a very small change is useful here. The proportional will cause an immediate jump in OP, then the integral will cause the OP to continue ramping in the same direction. When the PV starts to move, the proportional will cause the OP to move back the other way, and the integral action will diminish as the PV approaches the SP. Overshoot is often caused by too much integral and/or not enough proportional.</p>
+
+<p style="text-align: center;"><img alt="" data-entity-type="" data-entity-uuid="" src="./The Basics of Tuning PID Loops_files/too_much_reset.png" style="width: 410px; height: 155px;"></p>
+
+<p style="text-align: center;">Too Much Reset</p>
+
+<p>The OP needs to start moving back the other way well before the PV reaches the SP. The amount of time between the peak and the PV hitting the SP depends on the nature of the loop. If the peak comes too late, you need more proportional or less integral. If the peak comes too early, you need less proportional or more integral. An early peak will result in the PV leveling out before it reaches the SP, causing the OP and PV to swing on the way to their new steady-state values.</p>
+
+<p style="text-align: center;"><img alt="" data-entity-type="" data-entity-uuid="" src="./The Basics of Tuning PID Loops_files/swinging_to_SP.png" style="width: 224px; height: 140px;"></p>
+
+<p style="text-align: center;">Swinging to SP</p>
+
+<p>Once the loop is roughly tuned, put it in manual and change either the SP or OP, let it stabilize, then put it back in automatic. The loop will then move the PV to the SP, but with integral only - without the initial OP pulse from proportional. If the OP moves too slowly, you need more integral.&nbsp;<span data-mce-mark="1" style="background-color: #ffffff;">A long delay between the change in OP and the end of the resulting change to PV dictates a lower integral value.</span>&nbsp;Introduce derivative if you see that a bump in OP would be beneficial when the PV changes direction at the beginning of an upset.</p>
+
+<p><strong>This is an iterative method – every change in one parameter changes the ideal value for the other parameters.</strong>&nbsp;Go back and forth between upset methods and steady state stability, and make sure you check the tuning for the full range of possible SPs, If the system is non-linear (see above), a loop that is stable at higher flows may swing wildly at lower flows, and a loop that is responsive at low flows may be sluggish at higher flows.<span data-mce-mark="1" style="background-color: #ffffff;">&nbsp;<span data-mce-mark="1" style="background-color: #ffffff;"><a href="http://innovativecontrols.com/blog/advanced-pid-loop-tuning-methods?utm_source=blog&amp;utm_medium=internal%20referral&amp;utm_content=chris%20hardy&amp;utm_campaign=from%20PID%20basics" target="_blank" title="Read &quot;Advanced PID Loop Tuning Methods&quot;">A</a>&nbsp;PID loop with a control deadband can sometimes achieve acceptable control despite this challenge. See other ways to deal with valves and dampers with deadband in "<strong>Advanced PID Loop Tuning Methods</strong>."</span></span></p>
+
+<h2>Diagnosing the Cause of Oscillations</h2>
+
+<p>If the OP and PV peak at the same time, the oscillation is proportional-driven.</p>
+
+<p style="text-align: center;"><img alt="" data-entity-type="" data-entity-uuid="" src="./The Basics of Tuning PID Loops_files/too_much_gain.png" style="width: 364px; height: 180px;"></p>
+
+<p style="text-align: center;">Too Much Gain</p>
+
+<p>If the OP peaks when the PV is crossing its midpoint &amp; visa versa (so that the PV and OP waves are 90° out of phase), the oscillation is integral-driven.&nbsp;Some oscillations are driven by other factors in the system - put the loop in manual to see if it continues to oscillate if you suspect the loop you are tuning is not causing the oscillation.</p>
+
+<p style="text-align: center;"><img alt="" data-entity-type="" data-entity-uuid="" src="./The Basics of Tuning PID Loops_files/too_much_reset_0.png" style="width: 410px; height: 155px;"></p>
+
+<p style="text-align: center;">Too Much Reset</p>
+
+<p>Sometimes oscillations are acceptable. For example, the goal of boiler drum level control is primarily to avoid tripping on either low or high level. A moderate amount of oscillation at steady state is a good trade-off to get enough additional responsiveness to avoid tripping following significant upsets.</p>
+
+<p>Note that actuators (especially motorized valves) with deadband and/or limited duty cycle will ALWAYS swing when attached to a traditional PID loop regardless of tuning parameters. You can tell this is happening by looking at the trend – the PV will be flat while the OP is ramping down (due to integral), then the PV jumps to the other side of the SP, and the pattern reverses.&nbsp;<span data-mce-mark="1" style="background-color: #ffffff;"><a href="https://www.crossco.com/node/202" target="_blank" title="Read &quot;Advanced PID Loop Tuning Methods&quot;">See how to deal with valves and dampers with deadband in "Advanced PID Loop Tuning Methods".</a></span></p>
+
+<p style="text-align: center;"><img alt="" data-entity-type="" data-entity-uuid="" src="./The Basics of Tuning PID Loops_files/limited_duty_deadband_oscillation_0.png" style="width: 433px; height: 103px;"></p>
+
+<p style="text-align: center;">Limited Duty Deadband Oscillation</p>
+
+<h2>Balancing the&nbsp;Tuning&nbsp;Goals</h2>
+
+<p>A properly tuned loop balances the demands of stability, responsiveness and low overshoot. Tune the loop by adjusting the three tuning parameters so that the loop responds well in a variety of upset and steady-state situations. <span style="background-color: #ffffff;"><a href="https://www.crossco.com/node/202" target="_blank" title="Read &quot;Advanced PID Loop Tuning Methods&quot;">Some "Advanced PID Tuning Methods</a>"&nbsp;</span>may be necessary if challenges such as non-linearity, deadband, hysteresis or measurable external upsetting events prevent the loop from being satisfactorily tuned with the basic methods described above.</p>
+
+<p class="cta-container"><a class="btn btn-primary btn-lg" href="http://crossisg.com/" title="Discover Cross Company">Discover Cross Company</a></p>
+
+            </div>
+          </div>
+
+  </div>
+
+    <div class="related-posts">
+          <h3 class="field__label">Related Posts</h3>
+            <article data-history-node-id="288" role="article" about="/blog/how-control-two-process-variables-only-one-output" class="blog-post is-promoted text-teaser clearfix">
+
+          <div class="text-teaser-image field field--name-field-blog-post-image field--type-image field--label-hidden field__items">
+              <img src="./The Basics of Tuning PID Loops_files/Title Image_0.png" width="400" height="300" alt="How to Control Two Process Variables with Only One Output" typeof="foaf:Image" class="img-responsive">
+
+
+
+          </div>
+
+  
+  
+      <h2>
+      <a href="https://www.crossco.com/blog/how-control-two-process-variables-only-one-output" rel="bookmark"><span>How to Control Two Process Variables with Only One Output</span>
+</a>
+    </h2>
+    
+
+  
+  <div class="content">
+        
+              
+
+
+
+          
+
+  </div>
+
+</article>
+
+              <article data-history-node-id="202" role="article" about="/blog/advanced-pid-loop-tuning-methods" class="blog-post is-promoted text-teaser clearfix">
+
+          <div class="text-teaser-image field field--name-field-blog-post-image field--type-image field--label-hidden field__items">
+              <img src="./The Basics of Tuning PID Loops_files/logic_diagram.png" width="400" height="300" alt="PID Loop Tuning" typeof="foaf:Image" class="img-responsive">
+
+
+
+          </div>
+
+  
+  
+      <h2>
+      <a href="https://www.crossco.com/blog/advanced-pid-loop-tuning-methods" rel="bookmark"><span>Advanced PID Loop Tuning Methods</span>
+</a>
+    </h2>
+    
+
+  
+  <div class="content">
+        
+              
+
+
+
+          
+
+  </div>
+
+</article>
+
+      
+  </div>
+  
+    <div class="author-bio clearfix">
+    <div class="views-element-container form-group"><div class="view view-author view-id-author view-display-id-bio_block js-view-dom-id-8ba1c11e579d939b8f94f11fee3711b4a1bd413cdd47a9a978a2b26be9d75107">
+  
+    
+      
+      <div class="view-content">
+          <div>
+    <article typeof="schema:Person" about="/user/457">
+                    <img src="./The Basics of Tuning PID Loops_files/Chris Hardy blog.jpg" width="400" height="400" alt="Profile picture for user Chris Hardy" typeof="foaf:Image" class="img-responsive">
+
+
+
+      
+    <div class="text-content">
+      <h3>Chris Hardy</h3>            <a href="http://www.linkedin.com/pub/chris-hardy/32/298/9b0">LinkedIn</a>
+                  <p>Chris Hardy is an electrical engineer out of Georgia Tech. At Cross Company Integrated Systems since 1994, Chris has process control experience with boilers, alternative energy, water/waste water, chemicals, pharmaceuticals, security, textiles and automotive. Chris also programs controllers/HMIs and writes custom windows applications for communication, data collection, display, trending and reporting.</p>
+
+      </div>
+  </article>
+
+  </div>
+
+    </div>
+  
+          </div>
+</div>
+
+  </div>
+  
+  
+
+  
+
+      <ul class="topics-list field field--name-field-topics field--type-entity-reference field--label-inline field__items">
+      <span class="topics-label field__label">Topics</span>
+                <li class="field__item">
+        <a href="https://www.crossco.com/tags/automation" hreflang="en">Automation</a>
+            </li>
+                  <li class="field__item">
+        <a href="https://www.crossco.com/tags/boiler-controls" hreflang="en">Boiler Controls</a>
+            </li>
+                  <li class="field__item">
+        <a href="https://www.crossco.com/tags/electronic-controls" hreflang="en">Electronic Controls</a>
+            </li>
+                  <li class="field__item">
+        <a href="https://www.crossco.com/tags/migration" hreflang="en">Migration</a>
+            </li>
+                  <li class="field__item">
+        <a href="https://www.crossco.com/tags/pid-loops" hreflang="en">PID Loops</a>
+            </li>
+                  <li class="field__item">
+        <a href="https://www.crossco.com/tags/process-controls" hreflang="en">Process Controls</a>
+            </li>
+          </ul>
+
+
+  
+</article>
+
+
+  </div>
+
+              </section>
+
+                              <aside class="col-sm-4 sidebar" role="complementary" style="top: auto; left: auto;">
+                <div class="field field--name-field-sidebar-ctas field--type-entity-reference-revisions field--label-hidden field__items">
+                <div class="field__item">
+        <div id="assembly-id-764" class="assembly assembly-type-webform_embed_w_image">
+  <div class="container">
+        <h3 class="field field--name-field-title field--type-string field--label-hidden field__items">
+            Download This Case Study To See How Cross Company Got Jack Daniel's Running
+          </h3>
+    <div class="cta-image field field--name-field-image field--type-image field--label-hidden field__items">
+              <img src="./The Basics of Tuning PID Loops_files/Building-a-Process-Factory-From-Scratch_0.png" width="300" height="256" alt="building a process factory" typeof="foaf:Image" class="img-responsive">
+
+
+
+          </div>
+            <form class="webform-submission-form webform-submission-add-form webform-submission-building_a_process_facility_from-form webform-submission-building_a_process_facility_from-add-form webform-submission-building_a_process_facility_from-node-203-form webform-submission-building_a_process_facility_from-node-203-add-form js-webform-details-toggle webform-details-toggle" data-drupal-selector="webform-submission-building-a-process-facility-from-node-203-add-form" action="https://www.crossco.com/blog/basics-tuning-pid-loops" method="post" id="webform-submission-building-a-process-facility-from-node-203-add-form" accept-charset="UTF-8">
+  
+  <div class="form-item js-form-item form-type-textfield js-form-type-textfield form-item-first-name js-form-item-first-name form-no-label form-group">
+      <label for="edit-first-name" class="control-label sr-only js-form-required form-required">First Name</label>
+  
+  
+  <input data-drupal-selector="edit-first-name" class="form-text required form-control" type="text" id="edit-first-name" name="first_name" value="" size="60" maxlength="255" placeholder="First Name" required="required" aria-required="true">
+
+  
+  
+  </div>
+<div class="form-item js-form-item form-type-textfield js-form-type-textfield form-item-last-name js-form-item-last-name form-no-label form-group">
+      <label for="edit-last-name" class="control-label sr-only js-form-required form-required">Last Name</label>
+  
+  
+  <input data-drupal-selector="edit-last-name" class="form-text required form-control" type="text" id="edit-last-name" name="last_name" value="" size="60" maxlength="255" placeholder="Last Name" required="required" aria-required="true">
+
+  
+  
+  </div>
+<div class="form-item js-form-item form-type-email js-form-type-email form-item-email js-form-item-email form-no-label form-group">
+      <label for="edit-email" class="control-label sr-only js-form-required form-required">Email</label>
+  
+  
+  <input data-drupal-selector="edit-email" class="form-email required form-control" type="email" id="edit-email" name="email" value="" size="60" maxlength="254" placeholder="Email" required="required" aria-required="true">
+
+  
+  
+  </div>
+<div class="form-item js-form-item form-type-textfield js-form-type-textfield form-item-company-name js-form-item-company-name form-no-label form-group">
+      <label for="edit-company-name" class="control-label sr-only js-form-required form-required">Company Name</label>
+  
+  
+  <input data-drupal-selector="edit-company-name" class="form-text required form-control" type="text" id="edit-company-name" name="company_name" value="" size="60" maxlength="255" placeholder="Company Name" required="required" aria-required="true">
+
+  
+  
+  </div>
+<div class="form-item js-form-item form-type-textfield js-form-type-textfield form-item-zip-code js-form-item-zip-code form-no-label form-group">
+      <label for="edit-zip-code" class="control-label sr-only js-form-required form-required">Zip Code</label>
+  
+  
+  <input data-drupal-selector="edit-zip-code" class="form-text required form-control" type="text" id="edit-zip-code" name="zip_code" value="" size="60" maxlength="255" placeholder="Zip Code" required="required" aria-required="true">
+
+  
+  
+  </div>
+<div class="form-item js-form-item form-type-checkbox js-form-type-checkbox form-item-receive-valuable-educational-information js-form-item-receive-valuable-educational-information checkbox">
+  
+  
+  
+
+      <label for="edit-receive-valuable-educational-information" class="control-label option"><input data-drupal-selector="edit-receive-valuable-educational-information" class="form-checkbox" type="checkbox" id="edit-receive-valuable-educational-information" name="receive_valuable_educational_information" value="1" checked="checked">Receive valuable educational information</label>
+  
+  
+  </div>
+<input data-drupal-selector="form-g4qyykc4ddwi3wwlw0wwlr4xux2uat2unx1uwqxidva" type="hidden" name="form_build_id" value="form-G4qYYkC4ddWI3WwLw0wWLr4Xux2UaT2unx1uWqXIDVA"><input data-drupal-selector="edit-webform-submission-building-a-process-facility-from-node-203-add-form" type="hidden" name="form_id" value="webform_submission_building_a_process_facility_from_node_203_add_form"><div data-drupal-selector="edit-actions" class="form-actions form-group js-form-wrapper form-wrapper" id="edit-actions"><button class="button button--primary js-form-submit form-submit btn-info btn" data-drupal-selector="edit-submit" type="submit" id="edit-submit" name="op" value="Submit">Submit</button>
+</div>
+<div class="consulting_id-textfield form-group js-form-wrapper form-wrapper" style="display: none !important;"><input autocomplete="off" data-drupal-selector="edit-consulting-id" class="form-text form-control" type="text" id="edit-consulting-id" name="consulting_id" value="" size="20" maxlength="128"></div>
+
+  
+</form>
+
+        </div>
+</div>
+
+            </div>
+          </div>
+
+          </aside>
+                  </div>
+  </div>
+
+
+
+<div class="modal fade" id="consultation-form" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      <div class="modal-body">
+        <div class="row">
+          <div class="form-col col-md-6 col-md-push-6">
+            <h2 class="form-title">Contact us to discuss your system integration challenges</h2>
+            <form class="webform-submission-form webform-submission-add-form webform-submission-consult_control_system_integrati-form webform-submission-consult_control_system_integrati-add-form webform-submission-consult_control_system_integrati-node-203-form webform-submission-consult_control_system_integrati-node-203-add-form js-webform-details-toggle webform-details-toggle" data-drupal-selector="webform-submission-consult-control-system-integrati-node-203-add-form" action="https://www.crossco.com/blog/basics-tuning-pid-loops" method="post" id="webform-submission-consult-control-system-integrati-node-203-add-form" accept-charset="UTF-8">
+  
+  <div class="form-item js-form-item form-type-textfield js-form-type-textfield form-item-first-name js-form-item-first-name form-no-label form-group">
+      <label for="edit-first-name--2" class="control-label sr-only js-form-required form-required">First Name</label>
+  
+  
+  <input data-drupal-selector="edit-first-name" class="form-text required form-control" type="text" id="edit-first-name--2" name="first_name" value="" size="60" maxlength="255" placeholder="First Name" required="required" aria-required="true">
+
+  
+  
+  </div>
+<div class="form-item js-form-item form-type-textfield js-form-type-textfield form-item-last-name js-form-item-last-name form-no-label form-group">
+      <label for="edit-last-name--2" class="control-label sr-only js-form-required form-required">Last Name</label>
+  
+  
+  <input data-drupal-selector="edit-last-name" class="form-text required form-control" type="text" id="edit-last-name--2" name="last_name" value="" size="60" maxlength="255" placeholder="Last Name" required="required" aria-required="true">
+
+  
+  
+  </div>
+<div class="form-item js-form-item form-type-email js-form-type-email form-item-email js-form-item-email form-no-label form-group">
+      <label for="edit-email--2" class="control-label sr-only js-form-required form-required">Email</label>
+  
+  
+  <input data-drupal-selector="edit-email" class="form-email required form-control" type="email" id="edit-email--2" name="email" value="" size="60" maxlength="254" placeholder="Email" required="required" aria-required="true">
+
+  
+  
+  </div>
+<div class="form-item js-form-item form-type-textfield js-form-type-textfield form-item-company js-form-item-company form-no-label form-group">
+      <label for="edit-company" class="control-label sr-only js-form-required form-required">Company</label>
+  
+  
+  <input data-drupal-selector="edit-company" class="form-text required form-control" type="text" id="edit-company" name="company" value="" size="60" maxlength="255" placeholder="Company" required="required" aria-required="true">
+
+  
+  
+  </div>
+<div class="form-item js-form-item form-type-textfield js-form-type-textfield form-item-zip-code js-form-item-zip-code form-no-label form-group">
+      <label for="edit-zip-code--2" class="control-label sr-only js-form-required form-required">Zip Code</label>
+  
+  
+  <input data-drupal-selector="edit-zip-code" class="form-text required form-control" type="text" id="edit-zip-code--2" name="zip_code" value="" size="60" maxlength="255" placeholder="Zip Code" required="required" aria-required="true">
+
+  
+  
+  </div>
+<div class="form-item js-form-item form-type-textarea js-form-type-textarea form-item-notes js-form-item-notes form-no-label">
+      <label for="edit-notes" class="control-label sr-only js-form-required form-required">How can we help?</label>
+  
+  
+  <div class="form-textarea-wrapper">
+  <textarea data-drupal-selector="edit-notes" class="form-textarea required form-control resize-vertical" id="edit-notes" name="notes" rows="5" cols="60" placeholder="How can we help?" required="required" aria-required="true"></textarea>
+</div>
+
+
+  
+  
+  </div>
+<div class="form-item js-form-item form-type-checkbox js-form-type-checkbox form-item-receive-valuable-educational-information js-form-item-receive-valuable-educational-information checkbox">
+  
+  
+  
+
+      <label for="edit-receive-valuable-educational-information--2" class="control-label option"><input data-drupal-selector="edit-receive-valuable-educational-information" class="form-checkbox" type="checkbox" id="edit-receive-valuable-educational-information--2" name="receive_valuable_educational_information" value="1" checked="checked">Receive valuable educational information</label>
+  
+  
+  </div>
+<input data-drupal-selector="form-6wgkfddp8nb6z7hsc201eanhrps505jvvlwmnolvsem" type="hidden" name="form_build_id" value="form-6WgKfddP8NB6z7hSc201EanHRps505JvVLwmnolvSEM"><input data-drupal-selector="edit-webform-submission-consult-control-system-integrati-node-203-add-form" type="hidden" name="form_id" value="webform_submission_consult_control_system_integrati_node_203_add_form"><div data-drupal-selector="edit-actions" class="form-actions form-group js-form-wrapper form-wrapper" id="edit-actions--2"><button class="button button--primary js-form-submit form-submit btn-info btn" data-drupal-selector="edit-submit" type="submit" id="edit-submit--2" name="op" value="Submit">Submit</button>
+</div>
+<div class="consulting_id-textfield form-group js-form-wrapper form-wrapper" style="display: none !important;"><input autocomplete="off" data-drupal-selector="edit-consulting-id" class="form-text form-control" type="text" id="edit-consulting-id--2" name="consulting_id" value="" size="20" maxlength="128"></div>
+
+  
+</form>
+
+          </div>
+          <div class="col-md-6 col-md-pull-6 contact text-center">
+                        <div style="text-align:center;"><img alt="call_cross_icon.png" data-entity-type="" data-entity-uuid="" src="./The Basics of Tuning PID Loops_files/call_cross_icon.png" class="align-center"><p class="small-label">&nbsp;</p>
+
+<p class="small-label">Contact Us<b>&nbsp;</b></p>
+
+<h3><a href="tel:336-856-6000">8</a><a href="tel:865.671.7700">65-671-7700</a></h3>
+
+<h3><a href="mailto:info@crossco.com">info@crossco.com</a></h3>
+</div>
+
+      
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer" role="contentinfo">
+    <div class="container">
+        <div class="region region-footer">
+    <nav role="navigation" aria-labelledby="block-cross-footer-menu" id="block-cross-footer">
+            
+  <h2 class="visually-hidden" id="block-cross-footer-menu">Footer menu</h2>
+  
+
+        
+              <ul class="menu nav">
+                            <li>
+        <a href="https://www.crossco.com/industries" data-drupal-link-system-path="node/717">Industries</a>
+                  </li>
+                        <li>
+        <a href="https://www.shopcross.com/">ShopCross</a>
+                  </li>
+                        <li>
+        <a href="https://www.crossco.com/blog" data-drupal-link-system-path="blog">Blog</a>
+                  </li>
+                        <li>
+        <a href="https://www.crossco.com/careers" data-drupal-link-system-path="node/718">Careers</a>
+                  </li>
+                        <li>
+        <a href="https://www.crossco.com/about" data-drupal-link-system-path="node/719">About</a>
+                  </li>
+        </ul>
+  
+
+
+  </nav>
+<div class="search-block-form block block-search block-search-form-block" data-drupal-selector="search-block-form" id="block-searchform-2" role="search">
+  
+      <h2 class="visually-hidden">Search form</h2>
+    
+      <form action="https://www.crossco.com/search/node" method="get" id="search-block-form" accept-charset="UTF-8">
+  <div class="form-item js-form-item form-type-search js-form-type-search form-item-keys js-form-item-keys form-no-label form-group">
+      <label for="edit-keys" class="control-label sr-only">Search</label>
+  
+  
+  <div class="input-group"><input title="Enter the terms you wish to search for." data-drupal-selector="edit-keys" class="form-search form-control" placeholder="Search" type="search" id="edit-keys" name="keys" value="" size="15" maxlength="128"><span class="input-group-btn"><button type="submit" value="Search" class="button js-form-submit form-submit btn-primary btn icon-only" name=""><span class="sr-only">Search</span><span class="icon glyphicon glyphicon-search" aria-hidden="true"></span></button></span></div>
+
+  
+  
+      <div id="edit-keys--description" class="description help-block">
+      Enter the terms you wish to search for.
+    </div>
+  </div>
+<div class="form-actions form-group js-form-wrapper form-wrapper" data-drupal-selector="edit-actions" id="edit-actions--3"></div>
+
+</form>
+
+  </div>
+
+  </div>
+
+  </div>
+    <div class="container">
+    <div class="footer-row">
+      <div class="footer-logo"><img src="./The Basics of Tuning PID Loops_files/logo.png" alt="Home" typeof="foaf:Image" class="img-responsive">
+</div>
+      <div class="footer-address">
+        <a href="https://www.crossco.com/locations">All Cross Company Locations</a>
+      </div>
+      <div class="footer-phone-number">Phone <a href="tel:+13368566000">(336) 856-6000</a></div>
+            <ul class="footer-social-icons">
+        <li>
+          <a href="https://www.linkedin.com/company/cross-company"><i class="cross-icon-linkedin2"></i></a>
+        </li>
+        <li>
+          <a href="https://twitter.com/crosscompany1"><i class="cross-icon-twitter2"></i></a>
+        </li>
+        <li>
+          <a href="https://www.youtube.com/user/CrossTechTalk"><i class="cross-icon-youtube"></i></a>
+        </li>
+      </ul>
+          </div>
+        <div class="row">
+      <div class="col-xs-12 col-sm-8">
+        <div class="footer-copyright">
+          © 2018 Cross Company |
+          <a href="https://www.crossco.com/privacy-policy" title="Privacy Policy" class="dev-credit">
+            Privacy Policy
+          </a> |
+          <a href="https://www.crossco.com/terms" title="Terms of Use" class="dev-credit">
+            Terms of Use
+          </a>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="footer-credit"><a href="https://www.alloymagnetic.com/" title="Alloy Digital Marketing &amp; Web Design" class="dev-credit">Web Design by Alloy Digital Agency</a></div>
+      </div>
+    </div>
+      </div>
+</footer>
+
+    
+    <script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","scriptPath":null,"pathPrefix":"","currentPath":"node\/203","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"en"},"pluralDelimiter":"\u0003","bootstrap":{"forms_has_error_value_toggle":1,"modal_animation":1,"modal_backdrop":"true","modal_keyboard":1,"modal_show":1,"modal_size":"","popover_enabled":1,"popover_animation":1,"popover_container":"body","popover_content":"","popover_delay":"0","popover_html":0,"popover_placement":"right","popover_selector":"","popover_title":"","popover_trigger":"click","popover_trigger_autoclose":1},"ajaxTrustedUrl":{"\/search\/node":true,"form_action_p_pvdeGsVG5zNF_XLGPTvYSKCf43t8qZYSwcfZl2uzM":true},"user":{"uid":0,"permissionsHash":"b4c05fb4e13328c4d6a248df37b7a165431488ded3acd9d6ed04d59d25a7edd7"}}</script>
+<script src="./The Basics of Tuning PID Loops_files/js_XOTyChR-s0bOBwKTy4HlSRq4JeNQB21SJjvxeg7ELLk.js"></script>
+
+  <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"9f8dddabdd","applicationID":"101588223","transactionName":"YAMGZkRZD0cHBRdcXllJJVFCUQ5aSSIRQEFWCjhxWUoEaCAJEVhtcQkWX3RNCFgCAxEYD0UDClZTSjFYBwUGXV5bAgFAcFcTWScFF1xeWQ==","queueTime":0,"applicationTime":3091,"atts":"TEQFEAxDHEk=","errorBeacon":"bam.nr-data.net","agent":""}</script>
+
+
+<script type="text/javascript" id="">(function(a,c,e,f,d,b){a.hj=a.hj||function(){(a.hj.q=a.hj.q||[]).push(arguments)};a._hjSettings={hjid:223127,hjsv:5};d=c.getElementsByTagName("head")[0];b=c.createElement("script");b.async=1;b.src=e+a._hjSettings.hjid+f+a._hjSettings.hjsv;d.appendChild(b)})(window,document,"//static.hotjar.com/c/hotjar-",".js?sv\x3d");</script>
+<iframe name="_hjRemoteVarsFrame" title="_hjRemoteVarsFrame" id="_hjRemoteVarsFrame" style="display: none !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important;" src="./The Basics of Tuning PID Loops_files/rcj-da10bd4908deb9e19dfde013ec3fe4ff.html"></iframe><div id="ads"></div></body></html>
